@@ -16,7 +16,11 @@ const generateAddress = (limit) => {
 };
 
 async function storeAddressInFile() {
-  fs.writeFileSync('address.json', JSON.stringify(generateAddress(3)), 'utf-8');
+  fs.writeFileSync(
+    '../../address.json',
+    JSON.stringify(generateAddress(3)),
+    'utf-8'
+  );
 }
 
 storeAddressInFile();

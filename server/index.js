@@ -11,11 +11,14 @@ const utils = require('ethereum-cryptography/utils');
 app.use(cors());
 app.use(express.json());
 
-const balances = JSON.parse(fs.readFileSync('./address.json', 'utf-8'));
+const balances = JSON.parse(fs.readFileSync('../address.json', 'utf-8'));
 
 app.get('/balance/:address', (req, res) => {
   const { address } = req.params;
+  console.log(address);
+  console.log(balances);
   const balance = balances[address] || 0;
+  console.log(balance);
   res.send({ balance });
 });
 const dataValidation = async (req, res, next) => {
